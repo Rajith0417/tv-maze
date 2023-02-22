@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+// @import "~bootstrap/dist/css/bootstrap.min.css";
+
+
+/* Importing Bootstrap SCSS file. */
+// @import '~bootstrap/scss/bootstrap';
+// @import '~bootstrap/dist/css/bootstrap.min.css';
+// @import 'node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+
+@mixin placeholder {
+  ::-webkit-input-placeholder{
+    @content
+  }
+  :-moz-placeholder{
+    @content}
+
+  ::-moz-placeholder{
+    @content
+  }
+  :-ms-input-placeholder{
+    @content
+  }
+}
+
+@include placeholder {
+    font-style:italic;
+    color: #000;
+    font-weight:400;
+    opacity: 0.5;
+}
+
+@mixin font-style{
+  font-size: 20px;
+  line-height: 23px;
+}
+
+@mixin top{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body{
+  font-family: Helvetica, sans-serif;
+  background-color: #1C1C1C;
+}

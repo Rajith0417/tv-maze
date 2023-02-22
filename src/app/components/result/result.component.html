@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 top">
+      <img src="../../../assets/Bitmap.svg" alt="">
+      <app-search></app-search>
+    </div>
+  </div>
+  <div class="row content">
+    <div *ngFor="let result of results; index as i; trackBy: trackByFn" class="col-3 tile">
+      <a [routerLink]="['/details']" [queryParams]="{thetvdb: result.show.externals.thetvdb, id: result.show.id}">
+        <img src="{{result.show.image?.medium}}" alt="">
+        <h3>{{result.show?.name}}</h3>
+        <div *ngIf="result.show.rating.average" class="star">
+          <ngb-rating [max]="10" [(rate)]="result.show.rating.average" [readonly]="true"></ngb-rating>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

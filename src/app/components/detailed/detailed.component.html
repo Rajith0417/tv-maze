@@ -1,0 +1,42 @@
+<div class="container details">
+  <div class="row content">
+    <div class="col-12 top">
+      <img src="../../../assets/Bitmap.svg" alt="">
+      <app-search></app-search>
+    </div>
+    <div class="col-12">
+      <div class="go-back" (click)="goBack()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+        <span>Back to search results</span>
+      </div>
+    </div>
+    <div class="col-4 d-none d-md-block">
+      <img src="{{details?.image?.medium}}" alt="">
+    </div>
+    <div class="col-8 content">
+      <div class="row">
+        <div class="col-8 col-md-12">
+          <h1 class="details__header">{{details?.name}}</h1>
+          <ngb-rating *ngIf="details.rating.average" class="details__rating" [max]="10" [(rate)]="rating" [readonly]="true"></ngb-rating>
+          <p class="details__genres"><span class="highlight">Genres: </span>{{this.genres}}</p>
+          <p class="details__summary">{{summary}}</p>
+        </div>
+        <div class="col-4 d-sm-block d-md-none">
+          <img src="{{details?.image?.medium}}" alt="">
+        </div>
+        <div class="col-12">
+          <h2 class="details__cast-title">Cast</h2>
+        </div>
+        <div *ngFor="let cast of casts; index as i; trackBy: trackByFn" class="col-6 cast-tile">
+          <img class="cast-tile__img" src="{{cast.person.image.medium}}" alt="">
+          <div class="cast-tile__info">
+            <p class="cast-tile__name">{{cast.person.name}}</p>
+            <p class="cast-tile__cast">{{cast.character.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
