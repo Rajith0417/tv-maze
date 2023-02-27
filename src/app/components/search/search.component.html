@@ -1,4 +1,9 @@
 <form [formGroup]="myForm" (submit)="searchSeries()">
   <input type="text" formControlName="name" placeholder="Search for TV shows" />
+  <div class="form-control-feedback"
+    *ngIf=" myForm.controls['name'].errors && (myForm.controls['name'].dirty || myForm.controls['name'].touched)">
+    <p *ngIf="myForm.controls['name'].errors?.required">Name is required</p>
+    <!-- <p *ngIf="myForm.controls['name'].errors.Min">Min charactors are 3</p> -->
+  </div>
   <button type="submit">Submit</button>
 </form>

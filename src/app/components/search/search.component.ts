@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, MaxLengthValidator, MinValidator } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TvSeriesService } from '../../services/tv-series.service';
 
@@ -19,8 +19,9 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
-      name: new FormControl(''),
+      name: new FormControl('', [Validators.required]),
     });
+
   }
 
   searchSeries() {
